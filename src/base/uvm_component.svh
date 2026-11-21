@@ -2606,7 +2606,7 @@ endfunction
 // object on set_config_object(...) calls
 class uvm_config_object_wrapper;
    uvm_object obj;
-   bit clone;
+   bit _clone;
 endclass : uvm_config_object_wrapper
 
 function void uvm_component::set_config_int(string inst_name,
@@ -2669,7 +2669,7 @@ function void uvm_component::set_config_object(string inst_name,
 
   wrapper = new;
   wrapper.obj = value;
-  wrapper.clone = clone;
+  wrapper._clone = clone;
   uvm_config_db#(uvm_config_object_wrapper)::set(this, inst_name, field_name, wrapper);
 endfunction
 
